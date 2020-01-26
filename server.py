@@ -6,10 +6,11 @@ import six
 import os
 import time
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "path/to/json"
-smooch.configuration.username = "SMOOCH APP ID"
-smooch.configuration.password = "SMOOCH APP SECRET"
-app_id = "APP ID of Integration"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "path/to/file"
+smooch.configuration.username = 'app_id'
+smooch.configuration.password = 'app_secret_id'
+app_id = "integration_id"
+
 
 
 # App
@@ -40,6 +41,21 @@ def create_conversation(user_id):
     Store.user_id_timestamp[user_id] = ts
     post_messages('''Ask user to join with "cmd join {}".'''.format(ts), user_id)
 
+def create_conversation_alone(user_id):
+    ts = str(int(time.time()))
+    Store.conversations[ts] = {"users": [user_id]}
+    Store.user_id_timestamp[user_id] = ts
+    Store.conversations[ts]["users"].append(user_id)
+    Store.translating[user_id] = True
+    Store.waiting[user_id] = False
+    Store.discussing_to[user_id] = user_id
+    Store.user_id_timestamp[user_id] = ts
+    post_messages("Self study mode activated! Start writing sentences and it will be sent back to you in your translated language:", user_id=user_id)
+
+def get_languages(user_id):
+    results = translate_client.get_languages()
+    for language in results:
+        post_messages(u'{name} ({language})'.format(**language), user_id=user_id)
 
 def join_conversation(user_id, time_stamp):
     if time_stamp in Store.conversations:
@@ -120,6 +136,10 @@ def handle_commands(cmd, user_id):
             post_messages("Cannot create another room while waiting.", user_id)
             return
         create_conversation(user_id)
+    elif c[1] == "start_alone":
+        create_conversation_alone(user_id)
+    elif c[1] == "languages":
+        get_languages()
     elif c[1] == "set":
         if len(c) < 2:
             post_argument_missing(user_id)
@@ -135,8 +155,9 @@ def handle_commands(cmd, user_id):
             Store.discussing_to[user_id] = None
             Store.translating[user_id] = False
             Store.translating[user_id_2] = False
-            post_left_the_room(user_id_2, True)
-            post_end(user_id_2)
+            if user_id != user_id_2:
+                post_left_the_room(user_id_2, True)
+                post_end(user_id_2)
             post_end(user_id)
         else:
             if Store.waiting[user_id]:
