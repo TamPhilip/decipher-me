@@ -6,12 +6,11 @@ import six
 import os
 import time
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "path/to/file"
+
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "./path/to/file"
 smooch.configuration.username = 'app_id'
-smooch.configuration.password = 'app_secret_id'
+smooch.configuration.password = 'app_secret'
 app_id = "integration_id"
-
-
 
 # App
 translate_client = translate.Client()
@@ -106,7 +105,15 @@ def post_start(user_id):
 
 
 def post_commands(user_id):
-    post_messages('''Here is the list of commands: \n "cmd start {language}" - creates a room to talk \n "cmd exit" - exits the conversation \n "cmd join {id}" - joins a room with the id ''', user_id)
+    post_messages("Here is the list of commands", user_id)
+    time.sleep(1)
+    post_messages('''"cmd start" - creates a room''', user_id)
+    post_messages('''"cmd start_alone" - enter translation mode alone ''', user_id)
+    post_messages('''"cmd exit" - exit translation mode''', user_id)
+    post_messages('''"cmd set {lang}" - sets the language to the specified language''', user_id)
+    post_messages('''"cmd cmds" - display all commands''', user_id)
+    post_messages('''"cmd languages" - display all languages''', user_id)
+    post_messages('''"cmd join {ID}" - join the room of players''', user_id)
 
 
 def post_end(user_id):
@@ -129,9 +136,6 @@ def handle_commands(cmd, user_id):
         post_argument_missing(user_id)
         return
     if c[1] == "start":
-        if len(c) < 2:
-            post_argument_missing(user_id)
-            return
         if Store.waiting[user_id]:
             post_messages("Cannot create another room while waiting.", user_id)
             return
@@ -140,6 +144,8 @@ def handle_commands(cmd, user_id):
         create_conversation_alone(user_id)
     elif c[1] == "languages":
         get_languages()
+    elif c[1] == "cmds":
+        post_commands(user_id)
     elif c[1] == "set":
         if len(c) < 2:
             post_argument_missing(user_id)
