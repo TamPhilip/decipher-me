@@ -4,6 +4,7 @@
   <img align="center" src="img/logo.png" width="324" height="324">
 </p>
 
+DecipherMe is a translation integrated facebook bot created using the Zendesk Sunshines conversation API, and Google Translate API to break down language barriers by having messages sent in your native language. (Winner of the Zendesk API Challenge at ConUHacks V)
 
 | Commands:  | Response |
 | ------------- |  :---:   |
