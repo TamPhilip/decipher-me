@@ -5,15 +5,14 @@
 </p>
 
 
-Commands:
-<p align="center">
-  <div>
-        <p> 
-          cmd set
-       </p>
-          <img align="center" src="img/set.png" width="50%"/>
-  </div>
-</p>
+| Commands:  | Response |
+| ------------- | ------------- |
+| cmd commands  | <img src="img/commands.png" width="50%"/> |
+| cmd set {language}  | <img src="img/set.png" width="50%"/> |
+| cmd languages  | <img src="img/langauges.png" width="50%"/> |
+|  cmd start_alone  |  <img src="img/learning.png" width="50%"/> |
+|  cmd start  |  <img src="img/conversation.png" width="50%"/> |
+| cmd exit  |   <img src="img/exit.png" width="50%"/>  |
 
 ## Services
 
