@@ -6,7 +6,7 @@
 
 
 | Commands:  | Response |
-| ------------- | ------------- |
+| ------------- |  :---:   |
 | cmd commands  | <img src="img/commands.png" width="50%"/> |
 | cmd set {language}  | <img src="img/set.png" width="50%"/> |
 | cmd languages  | <img src="img/languages.png" width="50%"/> |
