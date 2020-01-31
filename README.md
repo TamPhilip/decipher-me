@@ -1,4 +1,24 @@
 # Decipher-Me
+
+<p align="center">
+  <img align="center" src="img/logo.png" width="324" height="324">
+</p>
+
+
+Commands:
+<p align="center">
+  <div>
+        <p> 
+          cmd set
+       </p>
+          <img align="center" src="img/set.png" width="50%"/>
+  </div>
+</p>
+
+## Services
+
+Unfortunately due to costs, the service provided has been stopped, but feel free to use this project as inspiration for further work!
+
 ## Inspiration
 In Québec, it can be difficult getting a grasp between English and French. Fundamentally, from this one key idea, the whole project was born. We wanted to create a solution where the user would be able to tackle the task of learning a language without much disruption to their daily life. Although you can't force anyone else to talk in the language you want to learn, with DecipherMe, every message on Messenger gets you that much closer to becoming fluent in another language!
 
