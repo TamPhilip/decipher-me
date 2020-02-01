@@ -6,14 +6,14 @@
 
 DecipherMe is a translation integrated facebook bot created using the Zendesk Sunshines conversation API, and Google Translate API to break down language barriers by having messages sent in your native language. (Winner of the Zendesk API Challenge at ConUHacks V)
 
-| Commands:  | Response |
-| ------------- |  :---:   |
-| cmd commands  | <img src="img/commands.png" width="50%"/> |
-| cmd set {language}  | <img src="img/set.png" width="50%"/> |
-| cmd languages  | <img src="img/languages.png" width="50%"/> |
-|  cmd start_alone  |  <img src="img/learning.png" width="50%"/> |
-|  cmd start  |  <img src="img/conversation.png" width="50%"/> |
-| cmd exit  |   <img src="img/exit.png" width="50%"/>  |
+| Commands:  | Response | Description |
+| ------------- |  :---:   | :--- |
+| cmd commands  | <img src="img/commands.png" width="50%"/> | List of all of the possible commands |
+| cmd set {language}  | <img src="img/set.png" width="50%"/> | Sets the language of the user using the language code |
+| cmd languages  | <img src="img/languages.png" width="50%"/> | List of all of the possible languages and their code |
+|  cmd start_alone  |  <img src="img/learning.png" width="50%"/> | Start learning mode and have words translated back to you |
+|  cmd start  |  <img src="img/conversation.png" width="50%"/> | Start a conversation with someone where they use the command to join the conversation |
+| cmd exit  |   <img src="img/exit.png" width="50%"/>  | Exits learning mode or conversation mode for you |
 
 ## Services
 
