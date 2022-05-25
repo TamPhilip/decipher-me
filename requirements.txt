@@ -6,7 +6,7 @@ google-cloud-translate==2.0.0
 itsdangerous==1.1.0
 Jinja2==2.10.3
 MarkupSafe==1.1.1
-PyJWT==1.7.1
+PyJWT==2.4.0
 python-dateutil==2.8.1
 six==1.14.0
 smooch==5.21.0
